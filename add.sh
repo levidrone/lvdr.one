@@ -14,11 +14,12 @@ echo -e "\n$SHORT_URL/$SOURCE_PATH -> $LONG_URL/$TARGET_PATH"
 echo -n "All right? (y/N): "
 read ANSWER
 
-echo $ANSWER
-
 if [ "$ANSWER" == "y" ] || [ "$ANSWER" == "Y" ]; then
+  echo -e "\nMake directory: '$SOURCE_PATH'"
   mkdir -p $SOURCE_PATH
   cd $SOURCE_PATH
+  echo "Generate page: '$SOURCE_PATH/index.html'"
   echo "<html><head><meta http-equiv=\"refresh\" content\"0; url=$LONG_URL/$TARGET_PATH\" /></head><body></body></html>" > index.html
+  echo -e "\nDone! Commit, push and enjoy!"
 fi
 
